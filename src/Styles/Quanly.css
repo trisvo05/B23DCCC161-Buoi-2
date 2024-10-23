@@ -1,0 +1,51 @@
+.container{
+    text-align: center;
+    /* margin-top : 100px  ; */
+}
+h1{
+    font-size: 300%;
+}
+.button_add{
+    background-color: green;
+    height: 50px;
+    width: 200px;
+    /* border: solid 2px black; */
+    border-radius: 5px;
+    color:aliceblue
+}
+.button_edit{
+    background-color: green;
+    height: 40px;
+    width: 100px;
+    /* border: solid 2px black; */
+    border-radius: 5px;
+    color:aliceblue
+}
+.button_delete{
+    background-color: red;
+    height: 40px;
+    width: 50px;
+    /* border: solid 2px black; */
+    border-radius: 5px;
+    color:aliceblue
+}
+.grid{
+    display: grid;
+    grid-template-columns: 300px 120px 50px;
+    margin-left: 350px;
+}
+.top{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.search-input {
+    width: 400px;
+    height: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  

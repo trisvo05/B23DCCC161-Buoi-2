@@ -1,0 +1,16 @@
+.li{
+    height: 50px;
+    width: 200px;
+    display: block;
+    background-color: blue;
+    text-decoration: none;
+    margin-top:10px;
+    color:white;
+    padding-top: 16px;
+    border: solid 2px black;
+    border-radius: 5px;
+}
+ul{
+    list-style-type: none;
+    text-align: center;
+}
