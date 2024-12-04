@@ -1,6 +1,6 @@
 const Huongdan = ()=>{
     return (
-        <div>Hello word</div>
+        <div>Đây là trang Hướng dẫn</div>
     )
 }
 export default Huongdan

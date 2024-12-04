@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import '../Styles/AddProduct.css'
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+}
 
-const EditProduct = ({ products, onUpdate }) => {
-  const { id } = useParams(); 
+interface EditProductProps {
+  products: Product[];
+  onUpdate: (updatedProduct: Product) => void;
+}
+
+const EditProduct: React.FC<EditProductProps> = ({ products, onUpdate }) => {
+  const { id } = useParams<{ id: string }>(); // id từ URL là chuỗi
   const navigate = useNavigate();
-  const [product, setProduct] = useState({ name: '', price: '' });
+  const [product, setProduct] = useState<Product | null>(null); // Có thể null nếu không tìm thấy sản phẩm
 
   useEffect(() => {
     const productToEdit = products.find((p) => p.id === Number(id));
@@ -14,12 +25,18 @@ const EditProduct = ({ products, onUpdate }) => {
   }, [id, products]);
 
   const handleUpdate = () => {
-    onUpdate(product);
-    navigate('/');
+    if (product) {
+      onUpdate(product);
+      navigate('/');
+    }
   };
 
+  if (!product) {
+    return <p>Không tìm thấy sản phẩm.</p>; // Hiển thị thông báo nếu không tìm thấy sản phẩm
+  }
+
   return (
-    <div>
+    <div className='add-product-container'>
       <h2>Sửa sản phẩm</h2>
       <input
         type="text"
@@ -31,7 +48,7 @@ const EditProduct = ({ products, onUpdate }) => {
         type="number"
         placeholder="Giá sản phẩm"
         value={product.price}
-        onChange={(e) => setProduct({ ...product, price: e.target.value })}
+        onChange={(e) => setProduct({ ...product, price: Number(e.target.value) })}
       />
       <button onClick={handleUpdate}>Cập nhật sản phẩm</button>
     </div>
